@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1068.0" prefWidth="1688.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <BarChart fx:id="MindBar" alternativeColumnFillVisible="true" animated="false" barGap="2.0" categoryGap="10" layoutX="15.0" layoutY="80.0" prefHeight="384.0" prefWidth="1026.0" title="Brain Waves">
+            <xAxis>
+                <CategoryAxis label="Waves" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Power" side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <LineChart fx:id="XYEssence" alternativeColumnFillVisible="true" createSymbols="false" layoutX="16.0" layoutY="480.0" prefHeight="375.0" prefWidth="720.0" title="Attention vs Meditation">
+            <xAxis>
+                <NumberAxis forceZeroInRange="false" label="Time" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Power" side="LEFT" />
+            </yAxis>
+        </LineChart>
+        <Slider fx:id="ThresholdSlider" layoutX="757.0" layoutY="512.0" majorTickUnit="10.0" max="100" min="0" minorTickCount="8" orientation="VERTICAL" prefHeight="289.0" prefWidth="38.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Slider>
+      <LineChart fx:id="XYwaves" createSymbols="false" layoutX="1030.0" layoutY="79.0" legendSide="RIGHT" prefHeight="375.0" prefWidth="625.0" title="All Waves">
+        <xAxis>
+          <NumberAxis forceZeroInRange="false" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis forceZeroInRange="false" label="Power" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Label layoutX="720.0" layoutY="628.0" prefHeight="24.0" prefWidth="233.0" rotate="90" text="Attention Threshold Value :" wrapText="true">
+         <font>
+            <Font name="Apple SD GothicNeo ExtraBold" size="18.0" />
+         </font>
+      </Label>
+      <AreaChart fx:id="PulseRate" layoutX="19.0" layoutY="854.0" prefHeight="202.0" prefWidth="720.0" title="Pulse">
+        <xAxis>
+          <NumberAxis forceZeroInRange="false" label="Time" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="BPM" side="LEFT" />
+        </yAxis>
+      </AreaChart>
+      <Label fx:id="ThresholdLabel" layoutX="690.0" layoutY="642.0" prefHeight="24.0" prefWidth="233.0" rotate="90" textAlignment="CENTER" textFill="#f80101" wrapText="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="107.0" layoutY="32.0" prefHeight="46.0" prefWidth="303.0" text="MIND CONTROL V1.0">
+         <font>
+            <Font name="Helvetica Bold" size="27.0" />
+         </font>
+      </Label>
+      <Button fx:id="ConnectButton" layoutX="1210.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="28.0" prefWidth="160.0" style="-fx-background-color: Navy;" text="RaspBerry Connect" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="DisconnectButton" layoutX="1210.0" layoutY="55.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="29.0" prefWidth="160.0" style="-fx-background-color: navy;" text="RaspBerry Disconnect" textFill="#fcfcfc">
+         <font>
+            <Font name="Arial Hebrew Scholar Bold" size="14.0" />
+         </font></Button>
+      <Label layoutX="1387.0" layoutY="19.0" prefHeight="17.0" prefWidth="146.0" text="Conection Status:">
+         <font>
+            <Font name="Apple Braille Outline 6 Dot" size="13.0" />
+         </font></Label>
+      <Label fx:id="StatusLabel" layoutX="1387.0" layoutY="60.0" text="Disconnected" textFill="RED" />
+      <Label layoutX="981.0" layoutY="20.0" text="Think Gear Connection Status:" />
+      <Label fx:id="mindwavestatus" layoutX="981.0" layoutY="42.0" prefHeight="17.0" prefWidth="134.0" />
+      <Label layoutX="983.0" layoutY="57.0" text="Poor Signal Event:" />
+      <Circle fx:id="signalcircle1" fill="whitesmoke" layoutX="1120.0" layoutY="65.0" radius="8.0" stroke="whitesmoke" strokeType="INSIDE" />
+      <Circle fx:id="signalcircle2" fill="whitesmoke" layoutX="1145.0" layoutY="65.0" radius="13.0" stroke="whitesmoke" strokeType="INSIDE" />
+      <Circle fx:id="signalcircle3" fill="whitesmoke" layoutX="1179.0" layoutY="65.0" radius="17.0" stroke="whitesmoke" strokeType="INSIDE" />
+      <LineChart fx:id="ChoiceChart" createSymbols="false" layoutX="1030.0" layoutY="475.0" legendSide="RIGHT" prefHeight="375.0" prefWidth="625.0" title="Selected Waves">
+        <xAxis>
+          <NumberAxis forceZeroInRange="false" label="Time" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Power" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <CheckBox fx:id="CheckDelta" layoutX="920" layoutY="525.0" mnemonicParsing="false" text="Delta" />
+      <CheckBox fx:id="CheckTheta" layoutX="920.0" layoutY="550.0" mnemonicParsing="false" text="Theta" />
+      <CheckBox fx:id="CheckLAlpha" layoutX="920.0" layoutY="575.0" mnemonicParsing="false" text="Low Alpha" />
+      <CheckBox fx:id="CheckHAlpha" layoutX="920.0" layoutY="600.0" mnemonicParsing="false" text="High Alpha" />
+      <CheckBox fx:id="CheckLBeta" layoutX="920.0" layoutY="625.0" mnemonicParsing="false" text="Low Beta" />
+      <CheckBox fx:id="CheckHBeta" layoutX="920.0" layoutY="650.0" mnemonicParsing="false" text="High Beta" />
+      <CheckBox fx:id="CheckLGamma" layoutX="920.0" layoutY="675.0" mnemonicParsing="false" text="Low Gamma" />
+        <CheckBox fx:id="CheckMGamma" layoutX="920.0" layoutY="700.0" mnemonicParsing="false" text="Medium Gamma" />
+      <Label fx:id="PulseLabel" alignment="CENTER" layoutX="800.0" layoutY="915.0" prefHeight="60.0" prefWidth="146.0" text="">
+         <font>
+            <Font size="48.0" />
+         </font></Label>
+      <ImageView fitHeight="50.0" fitWidth="146.0" layoutX="800.0" layoutY="984.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../heartbeat2.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="843.0" layoutY="892.0" prefHeight="17.0" prefWidth="81.0" text="Pulse Value" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+
+      <Button fx:id="ConnectButtonTGC" layoutX="850.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="28.0" prefWidth="124.0" style="-fx-background-color: Navy;" text="ConnectTGC" textFill="WHITE">
+         <font>
+            <Font name="Arial Hebrew Scholar" size="14.0" />
+         </font></Button>
+        <Button fx:id="DisconnectButtonTGC" layoutX="850.0" layoutY="55.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="29.0" prefWidth="124.0" style="-fx-background-color: Navy;" text="DisconnectTGC" textFill="WHITE">
+         <font>
+            <Font name="Arial Hebrew Scholar" size="14.0" />
+         </font></Button>
+      <Button fx:id="RobotConnectButton" layoutX="1107.0" layoutY="875.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="46.0" prefWidth="115.0" style="-fx-background-color: Navy;" text="Open Toy Connection" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="RobotDisconnectButton" layoutX="1107.0" layoutY="950.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="46.0" prefWidth="115.0" style="-fx-background-color: Navy;" text="Close Toy Connection" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1240.0" layoutY="863.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images.jpg" />
+         </image></ImageView>
+      <Circle fx:id="RobotStatusCircle" fill="RED" layoutX="1316.0" layoutY="943.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../qwer.png" />
+         </image></ImageView>
+        <fx:define>
+            <Image fx:id="btnImage" url="@../off.jpg" />
+        </fx:define>
+      <Button fx:id="ExitButton" layoutX="1550.0" layoutY="1.0" mnemonicParsing="false" onAction="#OnButtonClick" prefHeight="100.0" prefWidth="100.0" style=" -fx-background-color: white;">
+        <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../off.jpg" />
+               </image></ImageView>
+        </graphic>
+      </Button>
+
+
+
+    </children>
+</AnchorPane>
